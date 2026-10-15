@@ -1,29 +1,31 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import { Geist } from "next/font/google";
-import { cn } from "@/lib/utils";
-import { TooltipProvider } from "@/components/ui/tooltip"
-
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+import "@/app/globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: {
-    default: "Online Shop — Your Trusted E-Commerce Store",
+    default: "Online Shop",
     template: "%s | Online Shop",
   },
-  description: "Shop high-quality products at the best prices with exclusive deals and fast shipping only at Online Shop.",
+  description: "Shop high-quality products at the best prices.",
   icons: {
     icon: "/favicon.ico",
   },
 };
 
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en">
+    <html lang="id">
       <body>
-        <TooltipProvider>{children}</TooltipProvider>
+        <Header></Header>
+        {children}
+        <Footer></Footer>
       </body>
     </html>
-  )
+  );
 }
